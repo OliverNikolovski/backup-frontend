@@ -1,15 +1,27 @@
-<div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-4">
-        <img src="https://thumbs.dreamstime.com/b/blogging-blog-concepts-ideas-worktable-blogging-blog-concepts-ideas-white-worktable-110423482.jpg" class="img-fluid rounded-start" alt="...">
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
+<div class="card mb-3">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img
+        src="https://thumbs.dreamstime.com/b/blogging-blog-concepts-ideas-worktable-blogging-blog-concepts-ideas-white-worktable-110423482.jpg"
+        class="img-fluid rounded-start" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body h-100 d-flex flex-column justify-content-around">
+        <div class="d-flex justify-content-between">
           <h5 class="card-title">{{blog?.title}}</h5>
-          <p class="card-text">{{blog?.content}}</p>
-          <p class="card-text">Username</p>
-          <p class="card-text"><small class="text-muted">{{blog?.dateCreated}}</small></p>
+          <p class="card-text"><small class="text-muted">{{blog?.dateCreated | date:'MMM d, yyyy'}}</small></p>
+        </div>
+        <p class="card-title text-truncate">{{blog?.content}}</p>
+        <div class="card-footer">
+          <p class="card-text">{{blog?.username}}</p>
+          <div class="d-flex align align-items-baseline">
+            <div class="tags">
+              <span *ngFor="let tag of blog?.tags" class="badge rounded-pill text-bg-secondary me-2">{{tag}}</span>
+            </div>
+            <small class="text-muted ms-2">{{blog?.estimatedReadTime}} min read</small>
+          </div>
         </div>
       </div>
     </div>
   </div>
+</div>

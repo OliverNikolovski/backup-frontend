@@ -4,4 +4,6 @@ export interface Blog {
     dateCreated: Date;
     estimatedReadTime: Number;
     numberOfLikes: Number;
+    username: String;
+    tags: String[]
 }

@@ -1,5 +1,6 @@
-<h1 class="display-1">Blogs:</h1>
-<ul>
-    <!-- <li *ngFor="let blog of blogs$ | async">{{blog.title}}</li> -->
-    <app-blog *ngFor="let blog of blogs$ | async" [blog]="blog"></app-blog>
-</ul>
+<div class="container">
+    <h1 class="display-1">Blogs:</h1>
+    <ul>
+        <app-blog *ngFor="let blog of blogs$ | async" [blog]="blog"></app-blog>
+    </ul>
+</div>
