@@ -3,6 +3,18 @@
     height: 80px;
 }
 nav {
-    background-color: #e3f2fd;
+    background-color: #FEBC44;
     width: 100%;
+}
+
+.login {
+    background-color: #213458;
+    margin-right: 20px;
+}
+
+.navigation-link {
+    text-decoration: none;
+    color: #213458 !important;
+    margin-left: 30px;
+    font-size: larger;
 }
