@@ -12,7 +12,8 @@
                 </li>
             </ul>
             <span class="navbar-text">
-                <a href="#" class="btn text-white text-decoration-none login">Login</a>
+                <a *ngIf="!isLoggedIn" routerLink="/login" class="btn text-white text-decoration-none login">Login</a>
+                <a *ngIf="isLoggedIn" class="btn text-white text-decoration-none login" (click)="logout()">Log out</a>
             </span>
         </div>
     </div>

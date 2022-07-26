@@ -2,11 +2,11 @@ import { Blog } from "./blog";
 
 export interface Page {
     content: Blog[];
-    last: Boolean;
-    totalElements: Number;
+    last: boolean;
+    totalElements: number;
     totalPages: number;
-    size: Number;
-    first: Boolean;
-    numberOfElements: Number;
-    empty: Boolean;
+    size: number;
+    first: boolean;
+    numberOfElements: number;
+    empty: boolean;
 }

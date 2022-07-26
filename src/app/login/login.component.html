@@ -1,13 +1,13 @@
 <div class="container d-flex flex-column align-items-center">
     <h1 class="display-5 text-center my-5">Welcome back</h1>
-    <form class="w-50">
+    <form class="w-50" (submit)="onSubmit(username.value, password.value)">
           <div class="mb-3">
             <label for="formGroupExampleInput" class="form-label">Username</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your username">
+            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter your username" #username required>
           </div>
           <div class="mb-3">
             <label for="formGroupExampleInput2" class="form-label">Password</label>
-            <input type="text" class="form-control" id="formGroupExampleInput2" placeholder="Enter your password">
+            <input type="password" class="form-control" id="formGroupExampleInput2" placeholder="Enter your password" #password required>
           </div>
           <div class="mb-3">
             <button type="submit" class="text-uppercase btn btn-primary w-100">log in</button>

@@ -7,15 +7,15 @@ import { Blog } from '../models/blog';
   providedIn: 'root'
 })
 export class BlogService {
-  apiURL = "http://localhost:8083/api/blogs"
+  //apiURL = "http://localhost:8083/api/blogs"
 
   constructor(private http: HttpClient) {}
 
   getAllBlogs(): Observable<Blog[]> {
-    return this.http.get<Blog[]>(`${this.apiURL}/all`)
+    return this.http.get<Blog[]>(`/api/blogs/all`)
   }
 
   getBlogsWithPagination(page: number, size: number) {
-    return this.http.get<Blog[]>(`${this.apiURL}?page=${page}&size=${size}`)
+    return this.http.get<Blog[]>(`/api/blogs?page=${page}&size=${size}`)
   }
 }

@@ -1,9 +1,9 @@
 export interface Blog {
-    title: String;
-    content: String;
+    title: string;
+    content: string;
     dateCreated: Date;
-    estimatedReadTime: Number;
-    numberOfLikes: Number;
-    username: String;
-    tags: String[]
+    estimatedReadTime: number;
+    numberOfLikes: number;
+    username: string;
+    tags: string[]
 }
