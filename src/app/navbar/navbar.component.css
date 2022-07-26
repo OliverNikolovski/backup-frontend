@@ -9,12 +9,13 @@ nav {
 
 .login {
     background-color: #213458;
-    margin-right: 20px;
+    
 }
 
 .navigation-link {
     text-decoration: none;
     color: #213458 !important;
     margin-left: 30px;
-    font-size: larger;
+    font-size: 36px;
+    font-weight: lighter !important;
 }
