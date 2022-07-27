@@ -1,30 +1,36 @@
 <div class="container d-flex flex-column align-items-center">
-    <form class="row g-3 w-50">
+    <form class="row g-3 w-50" [formGroup]="form" (ngSubmit)="onSubmit(image.files)">
         <h2 class="display-5 text-center">Register</h2>
         <div class="col-12">
             <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" placeholder="Enter username">
+            <input type="text" class="form-control" id="username" placeholder="Enter username" name="username"
+                formControlName="username">
         </div>
         <div class="col-md-6">
             <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Enter password">
+            <input type="password" class="form-control" id="password" placeholder="Enter password" 
+            name="password" formControlName="password">
         </div>
         <div class="col-md-6">
             <label for="repeatPassword" class="form-label">Repeat Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Repeat password">
+            <input type="password" class="form-control" id="password" placeholder="Repeat password" 
+            name="repeatedPassword" formControlName="repeatedPassword">
         </div>
         <div class="col-12">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="password" placeholder="Enter email">
+            <input type="email" class="form-control" id="password" placeholder="Enter email" name="email"
+                formControlName="email">
         </div>
         <div class="col-md-12">
             <label for="yourself" class="form-label">About yourself</label>
             <textarea class="form-control" id="yourself" placeholder="Tell us something about yourself"
-                rows="3"></textarea>
+                rows="3" name="shortBio" formControlName="shortBio"></textarea>
         </div>
         <div class="col-md-12">
             <label for="picture" class="form-label">Profile picture</label>
-            <input type="file" class="form-control" id="picture">
+            <input type="file"  class="form-control" id="picture" name="image" 
+                accept="image/png, image/gif, image/jpeg" formControlName="image" #image
+                (change)="onFileChange($event)"/>
         </div>
         <div class="col-12 text-center">
             <button type="submit" class="btn text-white text-uppercase w-100">register</button>
