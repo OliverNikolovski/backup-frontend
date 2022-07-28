@@ -8,17 +8,20 @@ import { LoginNotificationService } from '../services/login-notification.service
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  isLoggedIn: boolean = false
+  isLoggedIn = false;
+  username = "";
 
   constructor(private loginNotificationService: LoginNotificationService,
     private router: Router) { }
 
   ngOnInit(): void {
     this.loginNotificationService.subject$.subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn);
+    this.loginNotificationService.username$.subscribe(username => this.username = username);
   }
 
   logout() {
-    this.isLoggedIn = false;
+    this.loginNotificationService.subject$.next(false);
+    this.loginNotificationService.username$.next("");
     localStorage.removeItem("access_token");
     this.router.navigate(['/login'])
   }

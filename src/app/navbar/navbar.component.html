@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="#"><img src="../../assets/logo.png" alt="blogit logo" id="logo" /></a>
+        <a class="navbar-brand" routerLink="/blogs"><img src="../../assets/logo.png" alt="blogit logo" id="logo" /></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,10 +8,28 @@
         <div class="collapse navbar-collapse" id="navbarText">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active text-uppercase text-primary fw-bold navigation-link" aria-current="page" href="#">Home</a>
+                    <a class="nav-link active text-uppercase text-primary fw-bold navigation-link" aria-current="page"
+                        routerLink="/blogs">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-uppercase text-primary fw-bold navigation-link" aria-current="page"
+                        href="#">Bookmarks</a>
                 </li>
             </ul>
+
+            <form *ngIf="isLoggedIn">
+                <div class="row">
+                    <div class="col">
+                        <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                    </div>
+                    <div class="col">
+                        <button class="btn btn-danger search" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+
             <span class="navbar-text">
+                <a class="me-3 text-decoration-none username">{{ username }}</a>
                 <a *ngIf="!isLoggedIn" routerLink="/login" class="btn text-white text-decoration-none login">Login</a>
                 <a *ngIf="isLoggedIn" class="btn text-white text-decoration-none login" (click)="logout()">Log out</a>
             </span>

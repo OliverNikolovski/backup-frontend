@@ -9,7 +9,6 @@ nav {
 
 .login {
     background-color: #213458;
-    
 }
 
 .navigation-link {
@@ -18,4 +17,20 @@ nav {
     margin-left: 30px;
     font-size: 36px;
     font-weight: lighter !important;
+}
+
+.username {
+    color: #213458;
+}
+
+input {
+    display: inline;
+}
+
+.search {
+    display: inline;
+}
+
+form {
+    margin: 0 auto;
 }

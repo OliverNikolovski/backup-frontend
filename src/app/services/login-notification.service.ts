@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginNotificationService {
-  subject$ = new Subject<boolean>();
+  subject$ = new BehaviorSubject<boolean>(false);
+  username$ = new Subject<string>();
   constructor() { }
 }

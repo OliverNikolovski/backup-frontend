@@ -1,5 +1,12 @@
 <div class="container">
-    <h1 class="display-1">Blogs:</h1>
+    <div *ngIf="isLoggedIn === true" class="row display-6 m-3">
+        <div class="col-2 border-bottom border-dark" [ngClass]="border ? 'border-2' : ''">
+            <a href="#" class="text-decoration-none text-black">All posts</a>
+        </div>
+        <div class="col-2 border-bottom border-2">
+            <a href="#" class="text-decoration-none text-black"  [ngClass]="border ? 'border-2' : ''">Following</a> 
+        </div>
+    </div>
     <ul>
         <app-blog *ngFor="let blog of blogs$ | async" [blog]="blog"></app-blog>
     </ul>
