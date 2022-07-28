@@ -12,13 +12,13 @@
             name="password" formControlName="password">
         </div>
         <div class="col-md-6">
-            <label for="repeatPassword" class="form-label">Repeat Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Repeat password" 
+            <label for="repeated-password" class="form-label">Repeat Password</label>
+            <input type="password" class="form-control" id="repeated-password" placeholder="Repeat password" 
             name="repeatedPassword" formControlName="repeatedPassword">
         </div>
         <div class="col-12">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="password" placeholder="Enter email" name="email"
+            <input type="email" class="form-control" id="email" placeholder="Enter email" name="email"
                 formControlName="email">
         </div>
         <div class="col-md-12">
@@ -28,8 +28,8 @@
         </div>
         <div class="col-md-12">
             <label for="picture" class="form-label">Profile picture</label>
-            <input type="file"  class="form-control" id="picture" name="image" 
-                accept="image/png, image/gif, image/jpeg" formControlName="image"
+            <input type="file"  class="form-control" id="picture" name="profilePicture" 
+                accept="image/png, image/gif, image/jpeg" formControlName="profilePicture"
                 (change)="onFileChange($event)"/>
         </div>
         <div class="col-12 text-center">

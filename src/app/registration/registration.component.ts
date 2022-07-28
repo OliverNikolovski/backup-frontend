@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs';
+import { LoginNotificationService } from '../services/login-notification.service';
 import { RegisterService } from '../services/register.service';
 
 @Component({
@@ -14,30 +17,37 @@ export class RegistrationComponent implements OnInit {
     repeatedPassword: new FormControl(),
     email: new FormControl(),
     shortBio: new FormControl(),
-    image: new FormControl(),
+    profilePicture: new FormControl(),
+
   });
 
-  constructor(private registerService: RegisterService) { }
+  constructor(
+    private registerService: RegisterService,
+    private loginNotificationService: LoginNotificationService,
+    private router: Router
+    ) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    const formData = new FormData();
-    formData.append('username', this.form.value['username']);
-    formData.append('password', this.form.value['password']);
-    formData.append('repeatedPassword', this.form.value['repeatedPassword']);
-    formData.append('email', this.form.value['email']);
-    formData.append('shortBio', this.form.value['shortBio']);
-    formData.append('image', this.form.get('image')?.value);
-    this.registerService.sendImage(this.form.getRawValue()).subscribe(data => console.log(data));
+    this.registerService.register(this.form.getRawValue()).
+    pipe(
+      tap(data => console.log('data:', data))
+    ).subscribe({
+      next: ({user, message}) => {
+        console.log(user, message);
+        this.loginNotificationService.subject$.next(true);
+        this.router.navigate(['/blogs']);
+      }
+    });
   }
 
   onFileChange(event: Event) {
     console.log(event);
-    let file = (event.target as HTMLInputElement).files![0];
+    const file = (event.target as HTMLInputElement).files![0];
     this.form.patchValue({
-      image: file
+      profilePicture: file
     });
   }
 }
