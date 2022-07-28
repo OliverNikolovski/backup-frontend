@@ -15,7 +15,6 @@ export class RegistrationComponent implements OnInit {
     email: new FormControl(),
     shortBio: new FormControl(),
     image: new FormControl(),
-
   });
 
   constructor(private registerService: RegisterService) { }
@@ -23,7 +22,7 @@ export class RegistrationComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit(files: FileList | null) {
+  onSubmit() {
     const formData = new FormData();
     formData.append('username', this.form.value['username']);
     formData.append('password', this.form.value['password']);
@@ -31,8 +30,6 @@ export class RegistrationComponent implements OnInit {
     formData.append('email', this.form.value['email']);
     formData.append('shortBio', this.form.value['shortBio']);
     formData.append('image', this.form.get('image')?.value);
-    // console.log(formData);
-    // console.log(this.form.getRawValue());
     this.registerService.sendImage(this.form.getRawValue()).subscribe(data => console.log(data));
   }
 

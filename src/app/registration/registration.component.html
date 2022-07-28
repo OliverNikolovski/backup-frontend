@@ -1,5 +1,5 @@
 <div class="container d-flex flex-column align-items-center">
-    <form class="row g-3 w-50" [formGroup]="form" (ngSubmit)="onSubmit(image.files)">
+    <form class="row g-3 w-50" [formGroup]="form" (ngSubmit)="onSubmit()">
         <h2 class="display-5 text-center">Register</h2>
         <div class="col-12">
             <label for="username" class="form-label">Username</label>
@@ -29,7 +29,7 @@
         <div class="col-md-12">
             <label for="picture" class="form-label">Profile picture</label>
             <input type="file"  class="form-control" id="picture" name="image" 
-                accept="image/png, image/gif, image/jpeg" formControlName="image" #image
+                accept="image/png, image/gif, image/jpeg" formControlName="image"
                 (change)="onFileChange($event)"/>
         </div>
         <div class="col-12 text-center">
