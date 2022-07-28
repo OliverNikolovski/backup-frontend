@@ -25,9 +25,9 @@ export class LoginComponent implements OnInit {
     this.loginService.login(username, password).pipe(
       tap(token => console.log(token))
     ).subscribe(
-      token => {
-        this.token = token.access_token;
-        localStorage.setItem("access_token", this.token);
+      data => {
+        this.token = data.access_token;
+        sessionStorage.setItem("access_token", this.token);
         this.loginNotificationService.subject$.next(true);
         this.loginNotificationService.username$.next(username);
         this.router.navigate(['/blogs'])
